@@ -8,11 +8,13 @@ class TestTranslator(unittest.TestCase):
         self.assertEqual(englishToFrench('Hello, how are you?'), 'Bonjour, comment allez-vous\xa0?')
         self.assertEqual(englishToFrench('It rains.'), 'Il pleut')
         self.assertEqual(englishToFrench('Hello'), 'Pepitoooo') # The current version translates this
+        self.assertNotEqual(englishToFrench('Hello'), 'hi')
 
     def test_frenchToEnglish(self):
         self.assertEqual(frenchToEnglish('Bonjour, comment ça va?'), 'Hello, how are you?')
         self.assertEqual(frenchToEnglish('Il pleu.'), "It's raining.")
         self.assertEqual(frenchToEnglish('Bonjour'), 'Hello')
+        self.assertNotEqual(frenchToEnglish('Bonjour'), 'Hi')
 
     def test_emptyString(self):
         self.assertEqual(englishToFrench(''), '')
